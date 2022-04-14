@@ -1,24 +1,55 @@
-/******************************************
-/* CSS
-/*******************************************/
-
 /* Box Model Hack */
 * {
     box-sizing: border-box;
 }
 
-/******************************************
-/* LAYOUT
-/*******************************************/
-img {
+
+/* Clear fix hack */
+.clearfix::after {
+    content: ". ";
     display: block;
-    margin: 0 auto;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
 
+.clear {
+    clear: both;
+}
 
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
+/* *************************** */
+/* BASE STYLE */
+/* *************************** */
+
+body {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 150vh;
+}
+
+/* ************************** */
+/* ADDITIONAL STYLING */
+/* ************************** */
+
+input {
+    width: 200px;
+}
+
+button {
+    margin: 20px auto;
+    display: block;
+}
+
+img {
+    max-height: 300px;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
 
 table {
     /* center aligns the table */

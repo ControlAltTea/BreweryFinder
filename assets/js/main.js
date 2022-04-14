@@ -47,10 +47,18 @@ class BreweryInfo {
       let newBTCell = newRow.insertCell(1);
       let newSCell = newRow.insertCell(2);
 
-      let newNText = document.createTextNode(this.name.text);
+    let newNText = document.createTextNode(`${this.name}`);
+    
+    console.log("newNText should be: " + this.name);
 
-      let newBTText = document.createTextNode(this.type.text);
+    let newBTText = document.createTextNode(`${this.type}`);
+    
+    let newSTtext = document.createTextNode(`${this.street}`);
 
-      newNText.appendChild(newNText);
+    newNCell.appendChild(newNText);
+    newBTCell.appendChild(newBTText);
+    newSCell.appendChild(newSTtext);
+
+
   }
 }
