@@ -6,6 +6,7 @@ document.querySelector('button').addEventListener('click', getFetch)
 
 
 function getFetch() {
+
   const cityName = document.querySelector('#breweryName').value;
 
   const breweryArr = cityName.split(" ");
@@ -17,76 +18,55 @@ function getFetch() {
   fetch(url)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
-      const random = data[Math.floor(Math.random() * data.length)];
-      console.log("data:" + random);
-
-      // dataContainer.push(data);
       breweryNames = data.map(el => el.name);
-      console.log(breweryNames);
+      console.log("first brewery: " + breweryNames[0]);
       breweryTypes = data.map(el => el.brewery_type);
-      console.log(breweryTypes);
       breweryLocations = data.map(el => el.street);
-      console.log(breweryLocations);
+      breweryWebsites = data.map(el => el.website_url);
 
       breweryNames.forEach((element, index, array) => {
-        const brewery = new BreweryInfo(breweryNames[index]);
-        brewery.testCall(breweryNames[index]);
+        const brewery = new BreweryInfo(data[index]);
+        console.log(brewery);
+        brewery.testCall();
         brewery.listBreweries();
       })
-
-
     })
     .catch(err => {
         console.log(`error ${err}`)
     });
   
-  
-  
     class BreweryInfo {
-    constructor(breweryData) {
-      this.name = breweryData.name;
-      this.type = breweryData.brewery_type;
-      this.street = breweryData.street;
-    }
+      constructor(breweryData) {
+        this.name = breweryData.name;
+        this.brewery_type = breweryData.brewery_type;
+        this.street = breweryData.street;
+        this.website = breweryData.website_url;
+      }
+      
+      testCall(){
+        console.log(this.name);
+      }
+
+      listBreweries() {
     
-    testCall(){
-      console.log("name of brewery: " + breweryNames.name);
-    }
-
-    listBreweries() {
       let tableRef = document.getElementById('brewery-table');
-
 
       let newRow = tableRef.insertRow(-1);
       let newNCell = newRow.insertCell(0);
       let newBTCell = newRow.insertCell(1);
       let newSCell = newRow.insertCell(2);
+      let newWCell = newRow.insertCell(3);
 
-      
-      
       let newNText = document.createTextNode(`${this.name}`);
-      
-      console.log("newNText should be: " + this.name);
 
-      let newBTText = document.createTextNode(`${this.type}`);
-      
+      let newBTText = document.createTextNode(`${this.brewery_type}`);
+  
       let newSTtext = document.createTextNode(`${this.street}`);
-
-      // newNCell.appendChild(newNText);
-      // newBTCell.appendChild(newBTText);
-      // newSCell.appendChild(newSTtext);  
-      
-      // breweryNames.forEach((element, index, array) => {
-      //   console.log("reached the for each")
-      //   newNCell.appendChild(newNText);
-      // })
-      
-      
+      let newWText = document.createTextNode(`${this.website}`);
+    
       // // Create a foreach to cycle through the array of objects
       for (let arr of breweryNames) {
         newNCell.appendChild(newNText);
-      //   newBTCell.appendChild(newBTText);
-      //   newSCell.appendChild(newSTtext);
       }
 
       for (let arr of breweryTypes) {
@@ -96,6 +76,10 @@ function getFetch() {
       for (let arr of breweryLocations) {
         newSCell.appendChild(newSTtext);
       }
-    }
+        
+      for (let arr of breweryWebsites) {
+        newWCell.appendChild(newWText);
+      }
+    }   
   }
 }
