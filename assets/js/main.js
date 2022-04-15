@@ -7,13 +7,11 @@ document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch() {
 
-  const cityName = document.querySelector('#breweryName').value;
+  const cityName = document.querySelector('#cityName').value;
 
   const breweryArr = cityName.split(" ");
 
   const url = `https://api.openbrewerydb.org/breweries?by_city=${breweryArr[0]}_${breweryArr[1]}`
-
-  let breweryNames = [];
 
   fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -30,6 +28,7 @@ function getFetch() {
         brewery.testCall();
         brewery.listBreweries();
       })
+      
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -48,38 +47,38 @@ function getFetch() {
       }
 
       listBreweries() {
-    
-      let tableRef = document.getElementById('brewery-table');
 
-      let newRow = tableRef.insertRow(-1);
-      let newNCell = newRow.insertCell(0);
-      let newBTCell = newRow.insertCell(1);
-      let newSCell = newRow.insertCell(2);
-      let newWCell = newRow.insertCell(3);
+        let tableRef = document.getElementById('brewery-table');
 
-      let newNText = document.createTextNode(`${this.name}`);
+        let newRow = tableRef.insertRow(-1);
+        let newNCell = newRow.insertCell(0);
+        let newBTCell = newRow.insertCell(1);
+        let newSCell = newRow.insertCell(2);
+        let newWCell = newRow.insertCell(3);
 
-      let newBTText = document.createTextNode(`${this.brewery_type}`);
+        let newNText = document.createTextNode(`${this.name}`);
+
+        let newBTText = document.createTextNode(`${this.brewery_type}`);
   
-      let newSTtext = document.createTextNode(`${this.street}`);
-      let newWText = document.createTextNode(`${this.website}`);
+        let newSTtext = document.createTextNode(`${this.street}`);
+        let newWText = document.createTextNode(`${this.website}`);
     
-      // // Create a foreach to cycle through the array of objects
-      for (let arr of breweryNames) {
-        newNCell.appendChild(newNText);
-      }
+        // // Create a foreach to cycle through the array of objects
+        for (let arr of breweryNames) {
+          newNCell.appendChild(newNText);
+        }
 
-      for (let arr of breweryTypes) {
-        newBTCell.appendChild(newBTText);
-      }
+        for (let arr of breweryTypes) {
+          newBTCell.appendChild(newBTText);
+        }
 
-      for (let arr of breweryLocations) {
-        newSCell.appendChild(newSTtext);
-      }
+        for (let arr of breweryLocations) {
+          newSCell.appendChild(newSTtext);
+        }
         
-      for (let arr of breweryWebsites) {
-        newWCell.appendChild(newWText);
+        for (let arr of breweryWebsites) {
+          newWCell.appendChild(newWText);
+        }
       }
-    }   
-  }
+    }
 }

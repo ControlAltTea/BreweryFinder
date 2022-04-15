@@ -26,12 +26,25 @@ body {
     text-align: center;
     font-size: 1.3rem;
     font-family: 'Gill Sans', 'Gill Sans MT', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 150vh;
+    height: 100vh;
+    background-image: url('/assets/images/brewery-cover.avif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* ************************** */
 /* ADDITIONAL STYLING */
 /* ************************** */
+
+h2 {
+    margin-bottom: 0;
+    font-size: 84px;
+    font-weight: 600;
+    color: white;
+    -webkit-text-stroke: 1px rgb(117, 41, 28);
+}
+
 
 input {
     width: 200px;
@@ -40,26 +53,32 @@ input {
 button {
     margin: 20px auto;
     display: block;
+    font-size: 48px;
+    padding: 10px;
 }
 
 img {
     max-height: 300px;
 }
 
-h2 {
-    margin-bottom: 0;
-}
-
 
 table {
     /* center aligns the table */
     margin: 20px auto;
+    color: white;
+    background-color: rgb(117, 41, 28);
 }
 
 table,
-th,
+tr,
+th {
+    border: 2px rgb(117, 41, 28) solid;
+    border-radius: 2%;
+    padding: 5px;
+}
+
 td {
-    border: 1px solid;
-    background-color: white;
-    padding: 3px;
+    background-color: rgb(92, 36, 26);
+    border-radius: 2%;
+    font-size: 48px;
 }
