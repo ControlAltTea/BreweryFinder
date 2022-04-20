@@ -4,6 +4,7 @@ console.log("connected to js")
 //Example fetch using pokemonapi.co
 document.querySelector('button').addEventListener('click', getFetch)
 
+let tableRef = document.getElementById('brewery-table');
 
 function getFetch() {
 
@@ -12,6 +13,19 @@ function getFetch() {
   const breweryArr = cityName.split(" ");
 
   const url = `https://api.openbrewerydb.org/breweries?by_city=${breweryArr[0]}_${breweryArr[1]}`
+
+  tableRef.innerHTML = "";
+
+  let headerRow = tableRef.insertRow(0);
+  let headers01 = headerRow.insertCell(0);
+  let headers02 = headerRow.insertCell(1);
+  let headers03 = headerRow.insertCell(2);
+  let headers04 = headerRow.insertCell(3);
+
+  let barsName = document.createTextNode("Brewery Name")
+  let barType = document.createTextNode("Type")
+  let barAddress = document.createTextNode("Address")
+  let barWebsite = document.createTextNode("Website")
 
   fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -48,8 +62,6 @@ function getFetch() {
 
       listBreweries() {
 
-        let tableRef = document.getElementById('brewery-table');
-
         let newRow = tableRef.insertRow(-1);
         let newNCell = newRow.insertCell(0);
         let newBTCell = newRow.insertCell(1);
@@ -62,6 +74,12 @@ function getFetch() {
   
         let newSTtext = document.createTextNode(`${this.street}`);
         let newWText = document.createTextNode(`${this.website}`);
+
+
+        headers01.appendChild(barsName);
+        headers02.appendChild(barType);
+        headers03.appendChild(barAddress);
+        headers04.appendChild(barWebsite);
     
         // // Create a foreach to cycle through the array of objects
         for (let arr of breweryNames) {

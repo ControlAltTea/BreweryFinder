@@ -37,24 +37,63 @@ body {
 /* ADDITIONAL STYLING */
 /* ************************** */
 
+#titleSection {
+    margin: 10px auto;
+    width: 100vw;
+    height: 20%;
+}
+
+#sectionBG {
+    width: 100vw;
+    height: 110vh;
+    margin: 0;
+    background: linear-gradient(rgba(59, 10, 1, 0), rgba(46, 11, 5, 0.724));
+}
+
 h2 {
     margin-bottom: 0;
-    font-size: 84px;
+    font-size: 32px;
     font-weight: 600;
-    color: white;
+    color: rgb(255, 255, 255);
     -webkit-text-stroke: 1px rgb(117, 41, 28);
 }
 
 
 input {
-    width: 200px;
+    width: 300px;
+}
+
+label {
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    font-weight: 900;
+    -webkit-text-stroke: 1px rgb(93, 18, 5);
+}
+
+input[type=text] {
+    font-size: 16px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 
 button {
     margin: 20px auto;
     display: block;
-    font-size: 48px;
+    font-size: 16px;
     padding: 10px;
+    background-color: rgb(117, 41, 28);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgb(82, 28, 19);
 }
 
 img {
@@ -80,5 +119,5 @@ th {
 td {
     background-color: rgb(92, 36, 26);
     border-radius: 2%;
-    font-size: 48px;
+    font-size: 18px;
 }
