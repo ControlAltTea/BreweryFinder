@@ -31,6 +31,12 @@ function getFetch() {
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       breweryNames = data.map(el => el.name);
+
+      if (breweryNames[0] === undefined) {
+        alert("No breweries found. Please enter new city");
+        return;
+      }
+      
       console.log("first brewery: " + breweryNames[0]);
       breweryTypes = data.map(el => el.brewery_type);
       breweryLocations = data.map(el => el.street);
