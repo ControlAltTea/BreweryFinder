@@ -1,2 +1,3 @@
-# HogwartsHouseChecker
- Finding students based on Hogwarts House
+# BreweryFinder
+Find breweries local to you
+
